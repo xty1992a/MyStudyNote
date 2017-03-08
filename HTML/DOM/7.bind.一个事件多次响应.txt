@@ -1,0 +1,21 @@
+
+一个事件多次响应
+	普通浏览器中,可以使用addEventListener()方法.
+	语法:
+		对象.addEventListener("事件类型" , 回调函数 , 是否在捕获期执行)
+	例如:
+		btn.addEventListener("click",function(){alert("abc")});
+	IE9以下使用attachEvent()方法
+	语法:
+		对象.attachEvent("on事件类型",回调函数)
+		
+	如果需要兼容两种方式,则需要自己设定函数.
+	function bind(obj , eventStr , callback){
+		if(obj.addEventListener){
+			obj.addEventListener(eventStr , callback , false);
+		}else
+			obj.attachEvent("on"+eventStr , function(){
+				callback.call(obj);
+			});
+	};
+	

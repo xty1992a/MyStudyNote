@@ -1,0 +1,49 @@
+过滤器
+
+	* currency 货币格式化(文本)
+	* number数值格式化(文本)
+	* date 将日期对象格式化(文本)
+	* json: 将js对象格式化为json(文本)
+	* lowercase : 将字符串格式化为全小写(文本)
+	* uppercase : 将字符串格式化全大写(文本)
+	
+///////////////////////////
+	orderBy: '属性'    
+		根据指定属性对数组排序
+		<li ng-repeat="item in [3, 2, 5, 4] | orderBy:'-'">{{item}}</li>
+		
+	limitTo: length:index
+		从一个数组或字符串中截取出一个新的数组或字符串,第一个为新数组长度,第二个为原数组索引
+		<p ng-init="arr=[1,2,3,4,5,6]">{{arr}}----{{arr | limitTo:3:2}}</p>
+		
+	* Filter : 根据条件在数组中查找
+		<input type="text" placeholder="输入查找条件" ng-model="serch.age">
+		<--
+			把input的值灌给serch的age属性;使用$接受任意属性,类似*
+			在下面filter需要一个对象作为参数,直接把serch本身传递进去;
+		-->
+		<ul>
+			<li ng-repeat="person in persons | filter:serch">{{person.id + '---' + person.name + '---' + person.age}}</li>
+		</ul>
+		
+自定义过滤器
+	module模块的.filter('过滤器名', 工厂函数)定义一个自定义函数
+	angular.module('myApp', [])
+		.filter('slice' function(){			//调用时,直接使用filter语法即可  示例 {{arr | slice:2:5}} //显示原数组中[2]--[5]的元素
+			return function(value, startIdex, endIdex){		//工厂函数,需要返回整个函数,该函数需要一个值,开始索引和结束索引
+				if(angular.isString(value)||angular.isArray(value)){		//只对数组及字符串进行处理
+					return value.slice(startIdex, endIdex);				//对原生slice方法进行封装,并返回新结果;
+				}else{
+					return value;							//对非数组及字符串直接返回;
+				}
+			}
+		})
+		
+		
+		
+		
+		
+		
+		
+		
+		

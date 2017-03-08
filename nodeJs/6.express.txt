@@ -1,0 +1,41 @@
+Express
+	安装:npm install -g express-generator
+	生成项目:
+		- 命令行cd到项目目录
+		- express 项目名 	//自动生成空项目
+		- cd 项目名			//进入项目
+		- npm install 		//根据package.json
+		
+	项目各目录作用:
+	- bin 				存储服务器主程序,启动服务器;
+	- node_modules 		存储程序所需要的包
+	- public 			存储静态资源
+		当服务器收到请求时,会首先到该文件夹寻找;
+		如果没有,再去路由中找是否有路径,路径错误或不存在则返回404;
+	- routers 			存储路由处理程序
+	- views				存储模板文件,一般是ejs或者jade文件
+	- app.js			逻辑主程序
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

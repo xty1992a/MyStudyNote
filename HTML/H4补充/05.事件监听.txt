@@ -1,0 +1,12 @@
+事件监听.
+	-需求,当高度过渡结束之后向元素写入文字.
+	-使用addEventListener()来监听事件.
+	-使用transitionend作为参数.
+	对象.addEventListener("transitionend",function(ev){
+		var pro = ev.propertyName;
+		if(pr0 == "height"){
+			对象.innerHTML="文字";
+		};
+	});
+	
+	*border margin padding等多个属性合并的简写属性会触发多次addEventListener()函数.

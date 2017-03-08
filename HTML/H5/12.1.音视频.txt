@@ -1,0 +1,10 @@
+音视频
+	H5中直接使用vedio,media标签即可引入音视频
+	添加controls属性,可以为音视频添加一个控制栏.
+	autoplay设置自动播放
+	loop设置循环播放
+	preload设置预加载;
+		auto,直接加载全部文件信息
+		metadata,只加载元数据,推荐在移动端使用
+		none,取消自动加载
+	poster设置封面海报.

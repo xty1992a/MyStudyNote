@@ -1,0 +1,37 @@
+artTemplate
+	从数据库返回大量数据后,如果直接使用js代码挨个遍历添加到dom中,重绘重排工作会消耗大量浏览器资源,因此使用前端模板引擎可以预先对数据进行处理,一次性生成所需html代码,并且一次性添加数据,降低重绘次数,节约浏览器性能;
+	
+	artTemplate使用流程:
+		1.使用script标签引入模板引擎;
+			<script src="/work/js/template-native.js"></script>
+		2.在一个带有id同时type值为'text/html'的script内部使用ejs语法设置模板;
+			<script id="provinceTemp" type="text/html">
+				<%for(var i=0; i<list.length; i++){
+					var provinceID = list[i].id;
+					var name = list[i].province;
+				%>
+
+					<option value="<%= provinceID %>"><%= name %></option>
+
+				<%
+				}
+				%>
+			</script>
+		3.在需要重绘页面的位置调用template()函数生成html字符串,参数一为模板id,参数二为一个对象,对象的值为数据;
+		
+			 var tempData = {
+					list:data
+				};
+			var html = template('provinceTemp', tempData);
+		4.将html字符串添加进页面;
+			$province.append(html);
+		
+	
+
+
+
+
+
+
+
+

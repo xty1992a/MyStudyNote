@@ -1,0 +1,19 @@
+H5自定义属性
+	使用data-开头的单词作为自定义属性.
+	自定义属性内可以传递一个字符串
+	
+		<div class="box" lang="en" title="hello" data-test="hello world" data-img-src="/1.pnge"></div>
+	
+		var json = {"name":"zhangsan","age":23};
+		读取:
+			DOM.dataset.自定义属性名(-用驼峰命名法代替)
+			读取json需要将读取到的字符串转换为JSON才能操作.
+			var obj = JSON.parse(DOM.dataset.自定义属性名)
+			
+		修改:
+			DOM.dataset.自定义属性名="newValue";
+			
+			如果要传递一个JSON,需要先将其使用JSON.stringify(json)方法转换为一个字符串.
+			
+			DOM.dataset.自定义属性名=JSON.stringify(json)
+			;

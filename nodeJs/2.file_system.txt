@@ -1,0 +1,38 @@
+fs
+	fs即file system
+	js无法直接对文件进行操作,只能通知os进行操作,node有两种方式进行读写操作,异步和同步.
+	同步读写:
+		node程序向操作系统提交读写请求之后将会暂停操作,等待系统读写完毕之后再执行下一步操作.
+	异步读写:
+		node程序向操作系统提交请求,同时对操作完成事件绑定一个回调函数,然后继续执行下一步操作,读写完成才会触发回调函数.
+	
+	var fs = require('fs');
+	
+	fs.readFile(path, function(err, data){
+		if(err){
+			console.error(err);
+		}else {
+			res.end(data);
+		}
+	});
+	
+	try {
+		var data = fs.readFileSync(path);
+	}
+	catch(err) {
+		console.error(err);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

@@ -1,0 +1,14 @@
+懒加载
+	懒加载即滚轮到达dom的位置才加载.这样可以加快页面打开速度,同时避免带宽的浪费(用户如果对页面不感兴趣,只看开头一部分就关闭页面,懒加载可以避免浪费带宽一次性把页面全部加载完毕.)
+	
+	通过监测dom的getBoundingClientRect()方法来实现.
+		getBoundingClientRect()有6个属性
+			bottom:Dom底边到视口顶部的距离;
+			top:Dom顶边到视口顶部的距离;
+			height:Dom的高度;
+			width:Dom的宽度;
+			left:Dom左边到视口左边的距离;
+			right:Dom右边到视口左边的距离;
+	如果top值小于innerheight,即可判断Dom已经进入视口,此时即可将正确的src路径替换默认图片路径.	
+		
+%FileName%%FileBaseName%.css

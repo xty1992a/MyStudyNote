@@ -1,0 +1,53 @@
+Jquery
+
+	*疑问:
+		$('.box').children('span')==$('.box span') //false
+		$('.box').children('span').html()==$('.box span').html() //true
+		
+		--jQuery对象首先是一个对象,每次使用$就相当于new了一个新的对象,所以使用上一个被 jQuery对象赋值的变量与下一个 jQuery对象进行比较是不相等的.
+	jquery是一个JS的框架,提供更加强大,方便的接口和功能,开发效率比原生要高,但是运行速度不如原生.权衡使用.原生能简单实现的功能尽量使用原生.
+	
+	jquery的核心函数是$(jQuery),核心对象是它的返回值$();
+	$()是一个jquery对象,与原生DOM对象不同,两者的方法和属性不能通用.
+	$()内部可以传递一个function,css选择器字符串,标签名及其内容,也可以传递一个DOM.
+		-function
+			约等于window.onload=>{};
+		-css选择器字符串.
+			如:$('.box'),等于queryslecterAll('.box'),查找所有符合条件的页面元素.
+		-标签名及其内容.
+			约等于innerHTML+document.createElement('')
+			var $p = $('<p>hello world</p>');
+			在创建一个jquery对象时,也创建了一个p标签及其内容.
+			
+			简写方式:$('标签',obj)
+				标签略过,obj内部声明标签的各种属性,同时可以绑定事件的响应函数.
+				$('<input>',
+					{
+						type:'text',
+						name:'uname',
+						focusin:function(){
+							$(this).addClass('active');
+							$(this).addClass('inputDefault');
+						},
+						focusout:function(){
+							$(this).removeClass('active');							
+						}
+				}).appendTo($('body'));
+			
+		-DOM.
+			将DOM转换为一个 jquery对象.
+			如$(this);
+			将jquery对象转换为DOM对象,
+				jquery对象是一个伪数组,它的第一个元素就是DOM对象.
+			$('#box')[0]
+			
+		- jQuery核心对象
+			- 调用$()返回的就是jQuery对象
+			- 包含所有匹配的任意个dom元素的伪数组
+			- length : 内部包含的dom元素对象的个数
+			- size() : 内部包含的dom元素对象的个数
+			- each(function(index, domEle){this就是domeEle}) : 遍历内部包含的dom元素数组中的所有元素对象
+			- index() : 返回当前dom元素在整个兄弟元素中的下标	
+			
+			
+			

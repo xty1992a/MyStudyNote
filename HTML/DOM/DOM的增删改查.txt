@@ -1,0 +1,86 @@
+DOM的增删改查
+	1.创建一个元素节点:createElement()方法
+			var divDom = document.createElement('div');
+		创建一个文本节点.
+			var str = document.createTextNode("str");
+	
+	2.插入DOM节点
+		-appendChild()方法.将节点插入到父元素的末尾.
+			document.body.appendChild(divDom);
+		
+		-insertBefore(新节点,指定节点)方法.将节点插入到父元素的指定子节点的前面.
+			var pDom = document.createElement('p');
+				pDom.appendChild(str);
+			document.body.insertBefore(pDom,divDom);
+	3.删除DOM节点
+		-removeChild()方法.将父元素的指定子节点删除.
+			
+			-他杀document.body.removeChild(pDom);
+			-自杀 pDom.parentNode.removeChild(pDom);
+		-repalceChild().将父元素的一个子节点替换为新节点.
+			document.body.repalceChild(pDom,divDom);
+	4.查询DOM节点
+		-方法:
+			getElementById();
+				通过ID获取一个元素节点
+			document.querySelector()
+				通过CSS选择器获取第一个找到的元素节点.
+			document.querySelectorAll()	
+				通过CSS选择器获取一组符合要求的元素节点
+			getElementsByTagName()
+				通过标签名获取一组符合要求的元素节点.
+			getElementsByClassName()
+				通过class获取一组符合要求的元素节点
+		-属性:
+			document.all	(*)
+			document.documentElement  (html)
+			document.body	(body)
+			
+			.childNodes
+				包括html结构中的空格,将识别为文本节点,如需读取,使用NodeValue
+			.children 
+				元素的所有子元素.
+			.firstchild 
+				元素标签紧随的第一个内容,又可能是空格.
+			.firstElementChild 
+				元素的第一个子元素(带标签的元素)
+			.lastChild
+				元素的最后一个子节点
+			.lastElementChild
+				元素的最后一个子元素(带标签的元素)
+			
+			.previousSibling
+				获取元素的前一个兄弟节点(可以是空格等文本)
+			.nextSibling
+				获取元素的后一个兄弟节点.
+				
+			///////////////
+			.innerHTML和.innerText
+				这两个属性都能获取到元素标签内部的内容,也可以将一个内容赋值给它,将其添加到元素内部.
+				区别是 innerHTML会连标签一起读取---同样也可以写入标签.
+				innerText只会读取文本,同样也只能写入文本.
+				
+				读取文本还可以通过读取文本节点的nodeValue.
+				
+			
+				
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

@@ -1,0 +1,27 @@
+currentstyle
+getcomputedstyle
+
+function getStyle(obj , name){
+   if(window.getComputedStyle){
+		return getComputedStyle(obj , null)[name];
+   }else{
+		return currentStyle[name];
+   }
+}
+垂直滚动条到底
+scrollHeight - scrollTop == clientHight
+
+水平滚动条到底
+scrollWidth - scrollLeft == clientWidth
+
+设置表单不可用
+disabled = "disabled"
+解除
+对象.disabled = false;
+
+div1.onmousemove = function(event){
+	event = window.envent || event;
+	var X = clientX
+	var Y = clientY
+	div2.innerHTML = "x="+X+",y="+Y;
+}

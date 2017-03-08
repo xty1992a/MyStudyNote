@@ -1,0 +1,90 @@
+canvas 
+	
+	canvas即画布,使用纯JS绘制图形.首先需要设置一个canvas标签,使用width即height属性直接设置宽高.
+	
+	取得canvasDom之后还需要获得它的上下文对象,即画笔ctx = canvasDom.getConText("2d");
+	
+	ctx可以通过线段,圆,矩形等各种方法绘制一个路径,该路径不能直接可见,需要选择fill()填充,或者stroke()描边.
+	使用fillStyle及strokeStyle设置画笔的颜色.
+	也可以使用creatLinearGradient(起始x,起始y,结束x,结束y)自定义线性渐变色;使用linearGradient.addColorStop(0-1,"color")...设置渐变颜色起点
+	或者使用creatRadialGradient(内圆心x,内圆心y,内圆r,外圆心x,外圆心y,外圆r)自定义径向渐变色;使用radiaGradient.addColorStop(0-1,"color")...设置渐变颜色起点.
+	
+	使用一个变量接受这个自定义颜色.
+	使用lineWidth设置画笔粗细,注意,路径没有宽度,且永远处于画笔的中间位置,如果路径绘制了一个宽度为x的矩形,该矩形描边之后的宽度为lineWidth/2+x+lineWidth/2,另一半的描边宽度将在矩形内部.
+	设置阴影
+    *一旦设置阴影，后面的所有的图形都会显示阴影
+    painting.shadowOffsetX = 0;
+    painting.shadowOffsetY = 0;
+    painting.shadowBlur = 30;
+    painting.shadowColor = "red";
+	
+	绘制图形之前,最好声明ctx.startPath(),使接下来的图形与之前的图形断开联系,避免连笔.
+	
+	直线:
+			moveto(x,y) 落笔坐标.
+			lineto(x,y) 结束坐标/折线顶点坐标
+			lintto(x1,y1)...
+		
+	曲线:
+			arcto(切线交点x,切线交点y,切线上任一点x,切线上任一点y,圆半径)
+		
+	贝赛尔曲线
+			可以通过 http://www.victoriakirst.com/beziertool/获取函数,直接复制.
+		
+	圆:
+			arc(x,y,r,起始角度,结束角度,时针方向)
+			x,y确定圆心坐标,r决定圆半径,起始角度及结束角度使用弧度制,从左顺时针方向分别为0*Math.PI,.5*Math.PI,1*Math.PI,2*Math.PI,2*Math.PI即0*Math.PI.
+			
+			弧度制与角度的转换.
+			角度*(Math.PI/180) = 弧度
+			
+	椭圆:
+			ellipse(x,y,rx,ry,倾斜,起始弧度,结束弧度,时针方向)
+			
+			与圆基本一致,rx与xy为圆的x轴y轴半径.
+		
+	绘制文本信息:
+			strokeText(txt,x,y);
+			fillText(txt,x,y)
+			设置文本对齐
+				水平	textAlign = "start/center/end"
+				垂直	textBaseline = "bottom/alphabetic/middle/hanging/top"
+
+	绘制图片:			
+		drawImage(图片对象,x,y,w,h)
+		该方法一般需要设置在图片对象加载完成之后再画入画布,以免画入空的画面.
+		
+		图片对象可以是video画面,通过截取video画面再重绘到画布上,可以对画面进行剪辑.
+		
+	图片合成:
+		两个不同的图片可以合成,通过改变画笔的globalCompositeOpretion属性设置不同的合成效果.
+		设置globalCompositeOpretion之前的绘入的图片为目标图片,以下的为源图片.
+		
+		globalCompositeOpretion的值如下:
+		    source-over 		默认。在目标图像上显示源图像。
+			source-atop 		在目标图像顶部显示源图像。源图像位于目标图像之外的部分是不可见的。
+			source-in 			在目标图像中显示源图像。只有目标图像内的源图像部分会显示，目标图像是透明的。
+			source-out 			在目标图像之外显示源图像。只会显示目标图像之外源图像部分，目标图像是透明的。
+
+			destination-over 	在源图像上方显示目标图像。
+			destination-atop 	在源图像顶部显示目标图像。源图像之外的目标图像部分不会被显示。
+			destination-in 		在源图像中显示目标图像。只有源图像内的目标图像部分会被显示，源图像是透明的。
+			destination-out 	在源图像外显示目标图像。只有源图像外的目标图像部分会被显示，源图像是透明的。
+
+			lighter 			显示源图像 + 目标图像。
+			copy 				显示源图像。忽略目标图像。
+			source-over 		使用异或操作对源图像与目标图像进行组合。
+	
+	变形:
+		画布中的画笔可以设置transform样式,
+		tranlate(),偏移原点坐标,可以使所有基于原点的绘画整体偏移.
+		scale(),放大绘画.
+		rotate(弧度)设置绘画旋转,使用弧度.
+		弧度 = 角度*(Math.pI/180);
+		
+		
+	
+	
+	
+	
+	

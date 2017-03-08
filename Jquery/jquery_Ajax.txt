@@ -1,0 +1,19 @@
+jQuery中的Ajax
+	
+	jq将ajax包装为一个工具方法,直接使用$调用即可
+	
+	- ajax();
+		第一个参数为url,但在第二个参数也能设置,所以一般空缺;
+		第二个对象为一个对象,分别设置ajax各项设置;
+		{
+			type:'post',
+			url:'/url',
+			data:'hello world!',
+			success:function(msg){
+				console.log(msg);
+			},
+			error:function(err){
+				console.error(err);
+				
+			}
+		}

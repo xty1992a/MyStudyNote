@@ -1,0 +1,35 @@
+通过JS修改CSS样式
+
+	-方式一
+		通过对象的style属性修改对象的内联样式.
+		语法:
+			对象.style.样式名 = 样式值.
+			box1.style.width = "100px"
+		
+		该方式添加的是内联样式,优先级较高,所以会立即执行.
+		但是如果其他样式中设置了!important,则JS代码对应的样式设置将会失效.
+		
+	-方式二	
+		获取对象当前显示的样式,(包括样式表内)
+		IE的查询方式
+			对象.currentStyle.样式名
+		普通浏览器的查询方式.
+			对象.getComputedStyle.样式名
+		兼容方式:
+			function getStyle(obj , name){
+				if(window.getComputedStyle){
+					return getComputedStyle(obj , null)[name];
+				}else{
+					return obj.currtStyle[name];
+				}
+			}		
+		
+		
+		
+-------------------
+通过JS读取CSS样式
+	方式类似修改.
+	语法:
+		对象.style.样式名
+		box1.style.width
+		

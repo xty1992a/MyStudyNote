@@ -1,0 +1,18 @@
+事件委派
+
+	-利用事件的冒泡,我们可以为多个子元素的父元素设置响应函数,通过父元素的事件对象的target属性判断触发事件的子元素,然后将事件分派给指定子元素.
+	
+	父元素.事件类型 = function(ev){
+		ev = ev || event;
+		if(ev.target.判断条件 == 子元素特征){
+			响应函数;
+		}
+	}
+	例如:
+		u1.onclick = function(ev){
+			ev = ev || event;
+			if(ev.target.className == "link"){
+				alert(123);
+			}
+		}
+	

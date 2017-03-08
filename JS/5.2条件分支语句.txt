@@ -1,0 +1,25 @@
+
+
+条件分支语句也叫switch语句
+	语法：
+		switch(条件表达式){
+			case 表达式:
+				语句...
+				break;
+		case 表达式:
+				语句...
+				break;
+			default:
+				语句...
+				break;
+		}
+  
+	执行流程：
+		switch...case..语句
+		依次将case后的表达式与switch后的表达式进行全等比较.
+			结果为true,执行所有后面的语句,包括其他case的语句,使用break打断.
+			结果为false,比较下一个case,直到true为止.
+			如果全部为false,执行default后的语句.
+		
+	switch语句和if语句的功能实际上有重复的，使用switch可以实现if的功能，
+		同样使用if也可以实现switch的功能，所以我们使用时，可以根据自己的习惯选择。

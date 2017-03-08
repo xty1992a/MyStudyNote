@@ -1,0 +1,34 @@
+依赖注入
+	如果完成一个特定功能必须依赖某个对象,这个对象就是依赖对象
+	如(event),(req, res)等
+	
+	引入依赖对象的方式有三种:
+	示例:使用构造函数创建一个person;
+		功能:console这个person的某个属性;这个person即为一个依赖对象
+		function Person(name,age){
+			this.name = name;
+			this.age = age;
+		}
+	1,内部自己创建:
+		function showPerson1(){
+			var wukong = new Person('wukong', 300);
+			console.log(wukong);
+		}
+		showPerson1();
+		
+		//缺陷:写死了不能动态
+		
+	2.方式二,全局定义
+		var bajie = new Person('bajie', 300);
+		function showPerson2(person){
+			console.log(bajie);
+		}
+		showPerson2();
+		//缺陷:污染全局
+		
+	3.方式三,形参注入
+		function showPerson3(person){
+			console.log(person);
+		}
+		showPerson3(new Person('shaseng', 300))
+	

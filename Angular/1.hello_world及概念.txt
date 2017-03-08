@@ -1,0 +1,64 @@
+AngularJS
+
+	angular通过ng指令拓展HTML,通过表达式绑定数据到html标签
+	ng-app指令定义一个angular应用程序						(占地盘)
+	ng-model把一个元素值绑定到应用程序						(把变量绑在rootscope对象上)
+	ng-bind指令把应用程序绑定到html视图层					(从rootscope中取得变量的值)
+		<div ng-app="">							//将div指定为应用程序拥有者
+			 <p>名字 : <input type="text" ng-model="name"></p> //把input的输入值绑定给变量name
+			 <h1>Hello {{name}}</h1>			//把name绑定给某个标签的innerHTML
+		</div>
+	
+	- 数据流向:单向,双向
+		ng-init:数据从view层流向model层,单向;
+		ng-bind/{{}}:数据从model层流向view层,单向;
+		ng-model:数据能够双向流动;	
+	
+	angular模块		
+		angular的module()方法定义一个控制函数.
+			参数一,app名
+			参数二,数组
+			返回值为一个angular对象,该对象的 controller()定义具体函数
+			参数一,函数名
+			参数二,函数表达式,该函数的参数是绑定该app的ag-bind或 angular表达式{{}}
+		<div ng-app="myApp" ng-controller="myCtrl" >
+			<input type="text" ng-model="firstName"><br>
+			<input type="text" ng-model="lastName"><br>
+			姓名: {{firstName + '-' +lastName}}<br>
+			姓名: {{firstName + '-' +lastName}}
+			全名: {{getName()}}
+		</div>
+		
+		
+		<script>
+			function myCtrl($scope){
+				$scope.firstName = 'wukong';
+				$scope.lastName = 'sun';
+				$scope.getName = function(){
+					var name = this.firstName + '' + this.lastName;
+					retrun name;
+				}
+			}
+		//该函数是一个构造函数,框架内部自动将该函数new为$scope;$scope是rootScope的子对象
+			var app = angular.module('myApp', []);
+				app.controller('myCtrl', function ($scope) {
+					$scope.firstName = 'John';
+					$scope.lastName = 'Doe';
+				});
+		</script>
+		
+		
+		
+		
+	自定义指令.directive()函数名
+		E:以标签名使用
+		A:以属性使用
+		C:以类名使用
+		M:以注释使用
+	var app = angular.module('myApp', []);
+		app.directive('myDirective', function()f{
+			retrun{
+				restrict:'A'//限定只能以属性调用
+				remplate:'<h1>自定义指令</h1>'
+			}
+		})

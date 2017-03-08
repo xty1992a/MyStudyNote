@@ -1,0 +1,55 @@
+	元素的长度属性
+	clientWidth
+	clientHeight
+	-这两个属性可以获得元素的可见宽度和高度
+	-将返回数值,可以直接计算.
+	-会获取包含内容区及内边距的宽度和高度,不包括边框.
+	-只读,无法修改
+	
+	-offsetWidth
+	-offsetHeight
+	-获取元素的包括内容区及内边距和边框的可见宽度及高度.
+	
+	-offsetParent
+	-可以获取当前元素的定位父元素,即离当前元素最近的开启定位的祖先元素,如果没有将返回body.
+	
+	-offsetLeft
+	-当前元素相对于其定位父元素的水平量偏移
+	-offsetTop
+	-当前元素相对于其定位父元素的水平量偏移
+
+	-scrollWidth
+	-scrollHeight
+	-获取当前元素整个滚动区域的宽度及高度.
+	
+	-scrollLeft
+	-获取水平滚动条的滚动距离
+	-scrollTop
+	-获取垂直滚动条的滚动距离
+	
+	公式:
+	scrollHeight - scrollTop == clientHeight
+	说明垂直滚动条到底
+	scrollWidth - scrollLeft == clientWidth
+	说明水平滚动条到底
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

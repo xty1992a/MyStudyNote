@@ -1,0 +1,20 @@
+CSS自增函数
+	使用counter-increment:num定义一个自增变量num.
+	使用counter(num)"-"进行自增
+	例如:
+		li{
+            counter-increment: num;
+        }
+        li:before{
+            content: counter(num) " - ";
+        }
+	-如果多个列表嵌套,可以使用counters为内部嵌套的列表也添加序号.
+		li:before{
+            content: counters(num,"-") " - ";
+        }
+	
+	
+	
+	
+	
+	-也可以在其他元素中使用自增函数.

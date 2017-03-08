@@ -1,0 +1,6 @@
+触屏检测
+	元素的 touchstart,touchmove,touchend可以检测触屏操作,注意,触屏操作只有使用addlistener("事件",function(){})的方式才有效.
+	
+	触屏信息存储在event的touches伪数组中,该数组记录了触屏坐标(距视口,距页面等.)
+	通过比较 touchstart与 touchmove 中的坐标可以获得滑屛方向.
+	

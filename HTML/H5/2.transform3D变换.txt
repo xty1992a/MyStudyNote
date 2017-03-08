@@ -1,0 +1,10 @@
+﻿3d变换
+	将父元素的transform-style设置为 preserve-3d,将开启3d模式.
+	将子元素的transform的rotateX或rotateY沿着不同的transform-origin进行翻折,还可以使用translateZ对元素进行3D上的升降.
+
+
+3d叠加
+	开启父元素的3D模式之后,可以将两张图片叠加到一起,当将父元素翻转之后,显示藏在底部的图片.
+	要实现这种效果,需要将底部的图片开启3d(类似开启定位才能设置层级),
+	方式一:设置底部的图片translateZ将其升降.
+	方式二:设置底部的图片rotateY(180deg).

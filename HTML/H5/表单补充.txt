@@ -1,0 +1,30 @@
+表单补充.
+	mathod:
+		是否在地址栏中显示提交信息,默认开启(get),安全有要求请关闭(post).
+	autocomplete:
+		自动填充,默认开启(on),对隐私有要求请关闭(off)
+	required:
+		输入项不能为空,默认关闭,开启指定"required"
+	maxlength:
+		输入最大字节,用户只能输入指定长度以内的字节数.
+	placeholder:
+		占位提示信息,用户输入后会自动消失.
+	autofocus:
+		指定"autofocus"将 使该输入框自动获取焦点.
+	formnovalidate可以设置不检查表单合法性.
+	formethod可以设置地址栏中是否可见提交的value值.
+	
+	同一个表单,可以提交给不同的服务器,可以设置多个submit按钮,将其formaction属性指向不同的路径.
+	
+	在表单域之外的表单项可以通过设置form属性指向该表单的ID来使其与指定表单关联绑定.
+	
+	
+	/////////////////
+	JS新的方法 oninput,监测输入内容.
+	
+	自定义提示信息
+	setCustomValidity();
+	传入一个字符串作为错误提示,如果传入""则取消该方法.允许输入.
+	
+	
+	

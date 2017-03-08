@@ -1,0 +1,16 @@
+
+	DOM即Document Object Modle	文本对象模型
+	document是浏览器为我们提供的文档节点,它是window的属性,即是整个页面.使用document作为父节点可以访问页面中所有元素.
+	object是指浏览器将页面中所有的节点都转换为了对象,这使得我们可以在纯面向对象的环境中对html页面进行操作.
+	modle是指将页面看作以html根标签为根,以下子标签为枝干的倒置文档树的方式,这样有利于我们理清节点之间的关系.
+	
+	dom中的一些概念
+	-事件
+		事件就是指用户与浏览器之间的交互行为.
+			如点击按钮,鼠标移动,关闭窗口等,dom能够对事件进行响应.
+		要使事件触发相应的响应函数,首先需要获取按钮对象.
+		使用document的getelementbyXX等系列方法获取对象.
+		如 var btn = document.getElementById("btn");
+			   btn.onclick = function(){执行代码};
+	- 注意,浏览器是自上而下逐行执行代码的,如果js代码写在body之上,需要设置window.onload事件,为它设置一个回调函数,然后将JS代码写在这个函数内部.
+	也可以直接将script标签移到body的底部.使页面加在完毕之后再执行.

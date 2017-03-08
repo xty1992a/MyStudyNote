@@ -1,0 +1,33 @@
+
+鼠标滚轮事件
+	onmousewheel属性会在鼠标滚轮滚动时触发.
+		*注意,火狐不支持该属性,请使用DOMMouseScroll.并且该方法只能在addEventListener()方法中使用
+		
+		*简单的兼容可以直接
+		obj.addEventListener("DOMMouseScroll" , obj.onmousewheel , false);
+		window.onmousewheel = function(ev){
+			检测ev中是否有wheelDeltaY,如果没有,则证明是火狐,将-ev.detail赋值给变量dir,可以不必修改判断逻辑.
+			ev.wheelDeltaY?dir = ev.wheelDeltaY:dir = -ev.detail;
+		};		
+	当滚轮滚动时,可以通过event实参查询滚动方向,
+		在onmousewheel中,查询event的wheelDelta属性.
+			正值表示向上滚,负值表示向下滚.
+		在DOMMouseScroll中,查询event的detail属性.
+			正值表示向下滚,负值表示向上滚.
+	
+	
+	
+	语法:
+		对象.onmousewheel = function(ev){
+			ev = ev || event;
+			if(ev.wheelDelta >0 || ev.detail < 0 ){
+				鼠标上滚
+			}else{
+				鼠标下滚
+			}
+			ev.preventDefault && event.preventDefault();
+			
+			return false;
+		};
+		
+		bind(对象,"DOMMouseScroll",对象.onmousewheel);

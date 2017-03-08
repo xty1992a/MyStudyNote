@@ -1,0 +1,24 @@
+filereader 
+	H5中新增文件读取器,用于读取本地文件的内容及路径.
+	可以配合<input type="file"/>及文件拖拽使用.
+	
+	当type为file的input选中文件时,会触发change事件,此时的event的target属性下的files中保存了选中文件对象,files是一个伪数组,可以通过遍历得到所有的文件对象.
+	
+	通过new fileReader() 构造一个文件读取器,这个文件读取器可以通过readAsDataURL()方法读取图片路径,通过readAsText()方法读取文本内容,将文件对象作为参数传入,文件读取器的result属性中即保存了执行方法之后的结果.
+	这个result可以作为一个img的src/一个元素的文本内容.
+	
+	*注意,fileReader的读取速度有限,比一般程序执行要慢,最好封装为一个独立的函数,不能在主程序中直接构造,否则声明提前将导致文件读取器的result为null,读取多个文件时,太大的文件来不及读取完成,主程序就已经执行完毕,将会写入空白内容.
+	
+	如果通过file类型的input要一次性写入多个文件,需要在input中设置multiple属性为multiple.
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

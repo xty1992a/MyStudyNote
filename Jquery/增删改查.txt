@@ -1,0 +1,23 @@
+jquery的增删改查
+	jquery具有读写二合一的特点,读与写使用同一个方法.
+		如果只指定属性名,则将返回属性值,如果同时设置属性值则将会覆盖/修改指定属性值.注意,对一个jquery对象设置属性,默认为该jquery包含的所有DOM设置属性.
+	
+		- attr() 					用来操作不为true/false的属性.
+		- prop() 					用来操作true/false属性.
+		- removeAttr(attrName) 		移除属性
+		- addClass('className') 	在classList中增加一个class
+		- removeClass() 			在classList中删除一个class
+		- val() 					读/写value属性值
+		- html() 					读/写标签文本(可以包含标签
+		- text() 					读/写文本
+		- width()/height()			读取元素实际宽高
+		-innerHeight/Width			读取元素包括padding的宽高
+		-outerHeight(f/t)Width(f/t)	读取元素包括边框的宽高(false)或包括margin的宽高(true).
+		
+		
+		- offset()					读/写元素相对于视口的偏移
+		- position()				读取元素相对于父元素的偏移.
+		- scrollTop()/scrollLeft	读/写元素相对于滚动条的偏移
+		
+		
+		

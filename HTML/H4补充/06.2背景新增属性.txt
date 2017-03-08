@@ -1,0 +1,30 @@
+背景background相关
+	background-origin 设置背景图从哪里开始绘制;
+	可选值:
+		padding-box: 默认值,从panding左上角开始
+		border-box:从边框位置开始绘制
+		content-box:从内容区开始
+		
+	background-clip
+		padding-box: 
+		border-box:默认值,
+		content-box:从内容区开始
+		
+		text:使背景只能从文字上透出;
+		需配合text-fill-color:transparent
+		将文字填充色设置为透明.
+		
+		
+	background-size
+		可选值:
+			100%100%
+				拉伸覆盖
+			cover(覆盖)
+				按照元素最大边放大图片,然后进行裁剪填充
+			contain
+				按照最小的边计算图片大小,然后空出剩余部分.
+				
+			
+			
+			
+			

@@ -1,0 +1,20 @@
+文本溢出的处理
+	处理长单词可以使用word-break打断,
+	也可以使用省略号省略.
+	省略号使用text-overflow:ellipsis加入,将删除多出文字,用省略号代替.
+	同时需要开启该块元素的overflow:hidden.
+	中文中每一个字都视做一个letter,不存在长单词问题,但如果需要使用省略号省略多余文字,也可以使用以上方法,但必须同时将white-space:设置为nowrap,将空格省略.
+	
+	
+	
+	
+	resize改变文本域的大小
+	 *需配合overflow:hidden使用
+	 
+	可选值: horizontal	水平	
+			vertical	竖直
+			both		同时改变
+				
+	
+	
+	

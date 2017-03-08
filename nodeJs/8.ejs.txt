@@ -1,0 +1,25 @@
+ejs
+	引入ejs
+	ejs主要的三种标签:
+	
+	//页面中重复使用的部分可以使用<%- include('相对路径') -%>进行占位复用;
+		重复使用的Html文本可以放在另一个ejs文件中,渲染页面时会根据include()的参数将其加入;
+	- <%- include('header.ejs') -%> 原代码
+	
+	//如果需要生成动态页面,则需要使用<%= mesage %>在ejs中占位;
+		res重新渲染页面时将动态部分作为占位变量的值传入即可;
+		该参数必须是一个对象,data是该变量的值;
+	- <%= mesage %>			//ejs文档中占位
+	
+		//主程序中重渲染,会将mesage覆盖ejs中指定变量;
+		var mesage = 'hello world!';
+		res.render('result.ejs', {mesage:mesage});
+		
+	- <% code %>			//js代码
+		js代码写在此标签内部;不属于js代码的必须隔离
+		<% for(var i=0;i<length;i++){
+			
+		%>
+			<%= mesageArr[i] %>
+		<%
+		}%>

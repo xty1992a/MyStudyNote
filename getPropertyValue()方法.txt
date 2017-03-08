@@ -1,0 +1,2 @@
+getPropertyValue("样式名")
+	该方法可以从一个getComputedStyle()或currentStyle()方法的返回对象中通过key获取value.不需要驼峰命名法.

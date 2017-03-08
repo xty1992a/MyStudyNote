@@ -1,0 +1,32 @@
+sessionStorage
+	会话数据
+	1.浏览器页签从打开到关闭就是一个完整的会话.
+	2.页签只能访问自己的sessionStorage
+	
+localStorage
+	本地数据
+	1.同源网页共享本地数据.
+	2.生命周期永久,直到用户删除.
+	
+	存储的数据类型只能为字符串及数字,如果需要存储JSON,需要使用JSON.stringify(jsonobj)转换为字符串再存储.
+	存储格式为键值对    "key":"value";
+	使用setItem("key":"value")方法写入一笔数据.
+	setItem如果key值一样,后加入的数据将会覆盖前一笔数据.
+	使用getItem("key")方法读取一笔数据,返回值是key值对应的value;
+	使用removeItem("key")删除指定key值的数据.
+	使用clear()方法清空所以item.
+	sessionStorage及localStorage是一个伪数组,可以通过for循环遍历获取它所有的数据.
+	
+	安全要求不高,读取频繁的数据,可以存储到这两个数据中.
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

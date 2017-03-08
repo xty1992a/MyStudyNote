@@ -1,0 +1,30 @@
+拖拽
+	首先需要设置被拖拽元素可以被拖拽.draggable="true";
+	再者,元素默认不能被其他元素覆盖,需要设置释放区元素取消这种默认行为.
+		
+	
+	1.为被拖拽元素设置ondragstart事件(建议利用冒泡,为body绑定dragstart事件,ev.target即被拖拽元素),将其赋值给一个中间变量dragDom.
+		document.body.ondragstart = function(ev){
+			dragDom = ev.target;
+		};
+	2.取消释放区默认行为.
+		释放区Dom.ondragover=function(ev){
+			ev.preventDefault();
+		};		
+	3.设置释放行为,将 dragDom的克隆体添加进入释放区.
+		释放区Dom.ondrop = function(){
+			释放区Dom.appendChild(dragDom.cloneNode(true));
+		}
+		
+		当文件拖拽到浏览器时,会默认使用浏览器打开该文件,而不是上传到网页中.
+		如果需要设置拖拽上传,则需要取消上述默认效果,当drop时,也需要设置
+		ev.preventDefault();
+		被拖拽的文件的对象保存在drop事件的event中,具体位置是ev.dataTransfer.files,然后通过fileReader读取文件信息.其他操作详见文件上传.
+		
+		
+		
+		
+		
+		
+		
+		

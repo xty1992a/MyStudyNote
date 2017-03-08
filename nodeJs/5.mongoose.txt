@@ -1,0 +1,126 @@
+mongoose
+	mongose是一个在js中操作mongoDB的包;
+	mongose中有3个重要概念:Schema;Model;Entity;
+	
+	Schema	定义数据格式,规定文档中名值对的类型;	模具
+	Model	是我们操作数据库的代理;					手
+	Entity	是文档的在js中的映射,比一般的对象强大;	产品
+	
+		Schema拥有属性和方法
+			-methods() 可以为它的Enity实例提供公共方法
+				Schema.methods.findSimilarType = function(callback){
+					//该Schema的Entity都可以使用该方法找到与自身type相同的其他文档;
+					return this.model(集合名).find({type:this.type}, callback);
+				}
+			-statics() 为使用它发布的model提供方法
+				Schema.statics.findByName = function(name, callback){
+					//使用它发布的model可以使用该方法通过name寻找文档(类似findById)
+					this.find({name:new RegExp(name, 'i'), callback});
+				}
+			-virtual() 传递一个字符串作为虚拟属性
+				虚拟属性也有get()和set()方法
+				Schema.virtual('name.full').get(function(){
+					//该Schema的Entity都可以直接使用.name.full获取全名
+					return this.name.first + '' + this.name.last;
+				})
+				Schema.virtual('name.full').set(function(){
+					//该Schema的Entity都可以直接使用.name.first获取名
+					var split = name.split(' ');
+					this.name.first = split[0;
+					this.name.last = split[1];
+				})
+
+
+			-属性
+				-statics属性可以绑定函数,自定义方法;
+				Schema.statics.findByNickname = function(nickname, callback){
+					//该Schema发布的model都可以直接使用该方法通过nickname找到文档
+					this.find({nickname}, callback);
+				}
+				
+				
+			
+			
+				
+				
+----------------------------------存疑-----------------------
+			-set(option, value) 配置Schema配置项
+				option项有:
+				safe:	安全属性,默认安全(日志,备份,超时相关);
+				strict: 严格模式,默认严格,Schema中未设置的属性无法添加进数据库;
+			
+	
+	//引入mongoose;
+	var mongoose = require('mongoose');
+	//与数据库建立连接
+		mongoose.connect('mongodb://127.0.0.1:27017/monster');
+	//使用db接受mongoose连接之后的返回值
+	var db = mongoose.connection;
+		db.on('error', function (err) {
+			console.error(err);
+		});
+		db.on('open', function () {
+			console.log('succeed!');
+		});			
+	
+	//创建Schema
+	var monsterSchema = new mongoose.Schema({
+			name:String,
+			age:{type:Number, default:20},
+			address:String,
+			skill:String,
+			gender:Number
+		});						
+	//创建Model,第一个参数是集合名
+	var MonsterModel = db.model('monster' monsterSchema)
+	
+		
+	- 增
+		- 使用Model添加
+			MonsterModel.create(obj);
+		
+		- 使用Entity添加
+			var objEntity = new MonsterModel(obj);
+			objEntity.save(function)		//异步I/O,可传回调函数
+		
+	- 删
+		- 使用Model删除
+			MonsterModel.remove(条件, function);
+		
+		- 使用Entity删除
+			MonsterModel.findOne({条件}function(err, doc){
+				if(err){}
+				else{
+					if(doc !== null){//排除无结果的可能
+						doc.remove(function);
+					}
+				}
+			});
+	
+	- 改
+		- 使用Model修改
+			MonsterModel.update({条件}, 目标值, function)
+		
+		- 使用Entity修改					//Entity是一个对象,可以直接对它的属性重新赋值;
+			MonsterModel.findById(_id值, function(err, doc){
+				if(err){}
+				else{
+					doc.属性 = 新值;
+					doc.save(function);
+				}
+			})
+		
+	- 查
+		- 查找只能使用Model查找
+			- find()方法,返回一个数组;
+				该数组包含所有符合条件的文档项所转化成的 Entity对象;
+				没有符合的文档则返回空数组;
+				MonsterModel.find({条件}, {投影项}, function(err, docs){})
+			
+			- findOne(),只返回符合条件的第一个文档,
+				没有符合的文档则返回null
+			- findById(),根据_id返回指定文档,
+				没有符合的文档则返回null
+		
+		
+		

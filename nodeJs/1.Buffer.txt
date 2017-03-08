@@ -1,0 +1,30 @@
+Buffer类
+	buffer是一种二进制数据,用于底层的数据传输,类似一个整数数组.使用两位的十六进制数字保存对应的八位二进制数字.
+	
+	-创建Buffer
+		node中使用Buffer()构造函数创建buffer.
+		参数可以是一个整数,表示转换后的Buffer长度.单位是字节.
+		var buf = new Buffer(10);
+		也可以是一个数组.
+		var buf = new Buffer([1,2,3,4,5]);
+		还可以是一个字符串,字符串之后使用,分隔另一个表示编码格式的字符串如'utf-8'.
+		var buf = new Buffer('你好', 'utf-8');
+		
+	-写入Buffer
+		buf.write(str[offset[length]][encoding])
+		str:写入buffer的内容.
+		offset:写入Buffer的索引(位置)
+		length:写入的字节数(默认为该buffer的length)
+		encoding:编码格式
+		
+	-读取buffer,返回一个string
+		buf.toString([encoding[start[end]]])
+		
+	-Buffer转换为JSON,返回一个json
+		buf.toJSON()
+		
+	-Buffer合并,返回合并后的buffer.
+		Buffer.concat([buf1,buf2...][合并后长度])
+		
+	http://www.runoob.com/nodejs/nodejs-buffer.html	
+	

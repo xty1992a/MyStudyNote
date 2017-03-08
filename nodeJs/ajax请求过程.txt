@@ -1,0 +1,16 @@
+window.onload = function(){
+	var xmlHttp = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft-XMLHTTP');
+	
+		xmlHttp.onreadystatechange = function(){
+			if(4 === xmlHttp.readyState && 200 === xmlHttp.status){
+				var result = xmlHttp.responseText;
+			}
+		}
+		
+		xmlHttp.open('get', '/url');    		//get在此添加信息
+		xmlHttp.send()							//post在此添加信息,
+		并且需设置请求头:xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+												  "Content-type", "application/x-www-form-urlencoded"					
+
+
+}

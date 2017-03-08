@@ -1,0 +1,17 @@
+angular对象
+	angular是本框架提供的全局对象;它的方法如下
+		- module('myApp', [])
+			创建一个模块对象,在ng-app范围内起效,或者由bootstrap()指定
+		- bootstrap(document, ['myApp'])
+			手动启动指定模块,模块写在一个数组内;参数一指定应用范围
+		- elements(dom)
+			将一个dom包装为jquery对象,以应用jquery方法属性
+		- forEach(obj, function(ele,index,obj){})
+			遍历数组及元素集合伪数组	//对原生forEach的包装
+		- toJson()和fromJson()
+			将对象与json之间转换		//对原生JSON的包装
+		- isArray(), isObject(), isFuction()	//布尔
+			判断一个对象是否符合条件,返回boolean
+		- lowercase(),uppercase()
+			大小写转换
+		

@@ -1,0 +1,15 @@
+定时调用与延时调用
+
+	定时调用
+	-setInterval(function(){},毫秒)
+		每间隔指定毫秒数,执行一次回调函数.
+		同时返回一个number作为标识,使用一个变量接收保存它.
+	-clearInterval(标识变量)
+		使用clearInerval()关闭定时器,将指定定时器的标识变量作为参数传入.
+	
+	延时调用
+	-setTimeout(function(){},毫秒)
+		指定毫秒数之后,执行回调函数,不会重复.
+		同时返回一个number作为标识,使用一个变量接收保存它.
+	-clearTimeout(标识变量)
+		使用clearTimeout关闭指定延时调用.

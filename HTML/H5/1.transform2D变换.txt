@@ -1,0 +1,47 @@
+﻿变换 transform
+	transform变换有一个默认的中心点,在元素宽度及高度的一半位置,所有变换效果将以该点为transform-origin.也可以通过这个属性指定变换中心.
+	*transform简写时,第一个变换效果会立即生效,后续的效果会以变化之后的坐标进行定位.
+
+
+
+
+	transform有4种方式.
+	-translate(平移)
+		-translateX()
+			定义元素沿X轴平移
+		-translateY()
+			定义元素沿Y轴平移
+		-translate()
+			定义元素对角平移
+	
+	-scale(缩放)
+		-scale(num)
+			定义元素缩放num倍,或指定两个具体值
+		-scaleX(num)
+			定义元素宽度缩放num倍
+		-scaleY(num)
+			定义元素高度缩放num倍
+			
+	-rotate(a deg)
+		-定义元素旋转a度,正值顺时针,负值逆时针
+
+		-rotateX(a deg)
+			定义元素沿X轴翻折
+		-rotateY(a deg)
+			定义元素沿Y轴翻折
+		*一般需配合3D显示,未开启3d有可能使元素不可见.
+		
+		
+	-skew(a deg)
+		-skewX(a deg)
+			定义元素沿X轴倾斜a度			
+		-skewY(a deg)
+			定义元素沿Y轴倾斜a度
+		-skew(a deg b deg)
+			定义元素沿X轴及Y轴倾斜a度
+			
+			
+			
+			
+			
+			

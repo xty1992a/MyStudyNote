@@ -1,0 +1,23 @@
+- JS的编写的位置
+	1.编写到元素的指定属性当中
+		例子：
+			<button onclick="alert('hello');">按钮</button>
+	2.编写到超链接的href属性中
+		例子：
+			<a href="javascript:alert('hello');">超链接</a>
+	3.编写到script标签中
+		<script type="text/javascript">
+			alert("hello");
+		</script>
+	4.编写到外部的js文件中,引入外部JS文件的script标签不能再写代码,浏览器会自动忽略.
+		<script type="text/javascript" src="script.js"></script>
+
+
+JS的输出方式
+	主要有三种
+	-alert("输出内容")
+		弹出警告窗口
+	-docmunter.write("输出内容")
+		向页面写入内容
+	-console.log("输出内容")
+		向控制台输出内容

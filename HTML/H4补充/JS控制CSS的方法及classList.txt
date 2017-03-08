@@ -1,0 +1,14 @@
+通过JS控制CSS
+	-setAttribute()方法
+		语法:
+			dom.setAttribute("属性名","属性值")
+		*setAttribute会先删除再增加.
+	-classList属性
+		元素的class保存在classList属性中.可以通过向元素添加新的类,批量导入新的样式.
+		方法:
+		-添加	dom.classList.add("class");
+			向dom的类列表中添加"class".
+		-移除   dom.classList.remove("class");
+			将dom的类列表中的"class"移除.
+		-切换   dom.classList.toggle("class")
+			如果dom中有"class",则移除,没有,则添加.

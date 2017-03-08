@@ -1,0 +1,12 @@
+
+	创建新的HTML元素使用createXXX()方法,XXX的主要可选值是Element;Textnode等等,具体查文档,语法:
+		docment.createElement("p");
+		docment.createTextNode("text");
+			
+	向HTML页面中添加元素使用appendChild()方法,首先找到已有的元素,以它为锚点,使用appendChlid()方法即可,语法:
+		document.getElementById().appendChild(p);
+		
+	使用innerHTML="添加内容"的方式也可以改变节点内部的元素
+  
+  
+

@@ -1,0 +1,4 @@
+justify-content是项目沿主轴排布
+align-items使项目沿侧轴在各自的行内排布
+	要使其生效,必须为项目指定具体宽度,使其换行.
+align-content使所有项目在容器内部沿侧轴排布
