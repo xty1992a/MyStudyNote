@@ -1,7 +1,6 @@
 #React组件生命周期
 
-组件在render之前会执行`componentWillMount()`方法
-在render之后会执行`componentDidMount()`方法
-以上两种方法在一个render之内只会执行一次,所以,一些准备工作可以放在里面执行,比如发送ajax请求.
-在卸载一个组件时,也会触发`componentWillUnmount()`方法,此时可以执行一些收尾工作,比如回收变量,停止定时器等
-当父组件向组件内传递一个新的prop时,会触发`componentWillReceiveProps()`方法,这个方法内可以放置一些需要根据父组件状态变化而实时更新的数据
+- `componentWillMount()`在组件调用render渲染之前调用
+- `componentDidMount()`在组件第一次渲染之后调用,此时已经生成了真实DOM,可以通过this.getDOMNode()访问.此时可以进行一些准备工作,比如发送ajax请求,设置定时器等.
+- `componentWillUnmount()`在卸载一个组件时,会调用该方法,此时可以执行一些收尾工作,比如回收变量,停止定时器等
+- `componentWillReceiveProps()`当父组件向组件内传递一个新的prop时,会触发方法,第一次渲染不会调用这个方法内可以放置一些需要根据父组件状态变化而实时更新的数据

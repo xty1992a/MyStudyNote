@@ -28,3 +28,7 @@
 * 将本地版本区(HEAD)的更新推送到远程仓库 : `git push origin master`
 * 提示输入username:xty2017a
 * 提示输入password:********
+
+###修改远程仓库
+	首先运行`git remote rm origin`
+	然后再运行`git remote add origin url`
